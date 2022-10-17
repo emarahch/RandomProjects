@@ -3,6 +3,10 @@ var skipButton = document.querySelector('.skipButton');
 var text = document.querySelector('.text');
 var coverArt = document.querySelector('.coverArt');
 var audio = document.querySelector('.audios');
+var duration=document.querySelector('.duration');
+
+
+
 
 var songCount=0;
 const songs = ["Gum By See You Next Year, Baird", "Stereo Driver By Q", "End of Beginning By Djo", "you up? By Yaya Bey"];
@@ -13,13 +17,16 @@ const mp=["music/Baird - See You Next Year - 'Gum' (Official Audio).mp3",
 "music/Yaya Bey - 'you up' (Official Audio).mp3"];
 
 
-audio.addEventListener('timeupdate', updateProgress);
+audio.addEventListener('loadeddata', ()=>{
+    duration.innerHTML = formating(audio.duration);
+});
 
-function updateProgress(e){
-    const { duration, currentTime } = e.srcElement;
-    const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercent}%`;
-}
+function formating(time) {
+    var minutes = Math.floor(time / 60);
+    var seconds = Math.floor(time-(minutes * 60));
+    return `${minutes}:${seconds}`;
+  }
+
 
 playButton .addEventListener("click",()=>{
     if (audio.paused || audio.ended){
@@ -45,6 +52,7 @@ function newSong(){
         songCount=0;
     }
 }
+
 
 function playerF(){
     playButton.innerHTML ="||";

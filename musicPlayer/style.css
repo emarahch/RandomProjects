@@ -9,28 +9,6 @@ body{
     font-family: 'Playfair Display', serif;
 }
 
-    @keyframes vinyl {
-        0% {
-          transform: translate3d(-50%, -50%, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate3d(-50%, -50%, 0) rotate(360deg);
-        }
-      }
-
-    .vinyl::before {
-        animation: 1.5s linear infinite vinyl;
-        animation-play-state: inherit;
-        background: black;
-        border: solid 2px black;
-        border-bottom-color: white;
-        border-radius: 50%;
-        content: "";
-        position: absolute;
-        height: 40px;
-        width: 40px;
-        will-change: transform;
-      }
 
 .box{
     display:flex;
@@ -39,25 +17,30 @@ body{
     justify-content: center;
     gap: 50px 50px;
     
-    background:#f2f9fc;
+    background:#ffffff;
     height: 500px;
     width: 400px;
     border-radius: 30px;
     position: absolute;
-    box-shadow: 0 0 40px gray;
-
+    /* box-shadow: 0 0 40px gray; */
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-img{
 
+
+img{
     /* need to work on this */
-    margin-top: -240px;
+    margin-top: -180px;
     margin-left: -25%;
     height: 200px;
     width: 200px;
     position: absolute;
-    box-shadow: 0 0 60px gray;
+    box-shadow: 0 0 10px gray;
     border-radius: 30px;
+}
+img:hover{
+    transform: translateY(-25%);
+    transition: .3s ease-in-out;
 }
 
 .buttonss{
@@ -65,18 +48,22 @@ img{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
 }
 button{
+    background-color:rgb(252, 221, 221);
     color:white;
     border-radius:5px;
-    border:.3px solid black;
+    border:.3px solid ;
     height: 20px;
 }
 button:hover{
     border: .2px solid white;
-    /* transform: scale(1.06); */
     box-shadow: 0 0 10px #dfb8f1, 0 0 25px #c2127e, 0 0 50px #dfb8f1;
+    
+}
+.text{
+    font-size: 20px;
     
 }
 
