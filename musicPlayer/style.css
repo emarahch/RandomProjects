@@ -1,0 +1,84 @@
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    /* background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+    background: linear-gradient(0deg, rgb(247, 247, 247) 23.8%, rgb(252, 221, 221) 92%);
+    font-family: 'Playfair Display', serif;
+}
+
+    @keyframes vinyl {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(360deg);
+        }
+      }
+
+    .vinyl::before {
+        animation: 1.5s linear infinite vinyl;
+        animation-play-state: inherit;
+        background: black;
+        border: solid 2px black;
+        border-bottom-color: white;
+        border-radius: 50%;
+        content: "";
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        will-change: transform;
+      }
+
+.box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px 50px;
+    
+    background:#f2f9fc;
+    height: 500px;
+    width: 400px;
+    border-radius: 30px;
+    position: absolute;
+    box-shadow: 0 0 40px gray;
+
+}
+
+img{
+
+    /* need to work on this */
+    margin-top: -240px;
+    margin-left: -25%;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    box-shadow: 0 0 60px gray;
+    border-radius: 30px;
+}
+
+.buttonss{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+button{
+    color:white;
+    border-radius:5px;
+    border:.3px solid black;
+    height: 20px;
+}
+button:hover{
+    border: .2px solid white;
+    /* transform: scale(1.06); */
+    box-shadow: 0 0 10px #dfb8f1, 0 0 25px #c2127e, 0 0 50px #dfb8f1;
+    
+}
+
+
+
