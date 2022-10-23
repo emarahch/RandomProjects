@@ -5,4 +5,10 @@ Random projects I've worked on or tutorials I've followed <3
 
 
 ### ♡ React projects:
-candy-re tutorial followed: https://www.youtube.com/watch?v=PBrEq9Wd6_U
+candy-re tutorial followed: https://www.youtube.com/watch?v=PBrEq9Wd6_U\
+
+HTML/CSS/JAVASCRIPT:
+Everything but python folder
+
+Python projects:
+All in SillyPython folder
