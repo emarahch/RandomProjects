@@ -5,6 +5,7 @@ body{
 header{
     position:sticky;
     top: 0px;
+    margin:0px;
     padding:20px;
     padding-top:5px;
     display: flex;
@@ -21,19 +22,19 @@ nav{
    flex-direction: row;
    justify-content: center;
    align-items: center;
-   flex-grow: 1;
+    flex-grow: 1;
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.973);
-    
+
 }
 
 ul{
     list-style-type:none ;
 }
-li{ 
+li{
     display:inline;
     padding:10px;
-  
+
 }
 
 
@@ -91,7 +92,7 @@ box-shadow: 15px 84px 111px -4px rgba(0,0,0,0.28);
     transform: scale(1.06) ;
     transition: transform 550ms;
     box-shadow: 15px 84px 111px -4px rgba(0,0,0,0.28);
-   
+
 }
 
 a:link{
@@ -117,4 +118,3 @@ footer{
     display: flex;
     flex-direction: column;
 }
-   
