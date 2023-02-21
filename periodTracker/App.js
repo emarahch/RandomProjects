@@ -4,10 +4,10 @@ import RadioButton from './components/RadioButton';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button, Modal,Pressable,TextInput,ScrollView,SafeAreaView} from 'react-native';
 import {useState, useEffect} from 'react';
-// import 'react-native-gesture-handler';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { createStackNavigator } from '@react-navigation/stack';
+
 
 
 function HomeScreen( {navigation}) {
@@ -100,6 +100,11 @@ function HomeScreen( {navigation}) {
           
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
+          <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
             <Text style={styles.modalText}>{currentDate}</Text>
 
             <ScrollView >
@@ -134,11 +139,7 @@ function HomeScreen( {navigation}) {
               />
                </ScrollView>
 
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
+            
           </View>
         </View>
        
@@ -211,7 +212,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 35,
+    padding: 8,
   },
   button: {
     borderRadius: 20,
