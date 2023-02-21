@@ -1,6 +1,9 @@
 
 // https://reactnavigation.org/docs/tab-based-navigation/
-import RadioButton from './components/RadioButton';
+
+
+import SympModal from './components/sympModal';
+import Calendar from './components/calendar';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button, Modal,Pressable,TextInput,ScrollView,SafeAreaView} from 'react-native';
 import {useState, useEffect} from 'react';
@@ -12,7 +15,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 function HomeScreen( {navigation}) {
     const [currentDate, setCurrentDate] = useState('');
-    const [modalVisible, setModalVisible] = useState(false);
+    // const [modalVisible, setModalVisible] = useState(false);
     // const [text, setText] = useState('');
 
     useEffect(() => {
@@ -24,133 +27,13 @@ function HomeScreen( {navigation}) {
       );
     }, []);
     
-    const flowData = [
-      { value: 'Light' },
-      { value: 'Medium' },
-      { value: 'Heavy' },
-    ];
 
-    const moodData = [
-      { value: 'Calm' },
-      { value: 'Happy' },
-      { value: 'Sad' },
-      { value: 'Angry' },
-      { value: 'Excited' },
-      { value: 'Mood Swings' },
-      { value: 'Anxious' },
-      { value: 'Indifferent' },
-      { value: 'Irrtiable' },
-    ];
-
-
-    const dischargeData = [
-      { value: 'None' },
-      { value: 'Sticky' },
-      { value: 'Eggwhite' },
-      { value: 'Atypical' },
-      
-    ];
-
-    const sexData = [
-      { value: 'None' },
-      { value: 'Protected' },
-      { value: 'Unprotected' },
-      { value: 'High sex drive' },
-      { value: 'Low sex drive' },
-      { value: 'Withdrawl' },
-      { value: 'Masturbation' },
-      { value: 'Painful' },
-      
-    ];
-
-    const painData = [
-      { value: 'None' },
-      { value: 'Period Cramps' },
-      { value: 'Ovulation' },
-      { value: ' Breast Tenderness' },
-      { value: 'Headache' },
-      { value: 'Migraine' },
-      { value: 'Joint' },
-      { value: 'Back' },
-      
-    ];
-
-    const otherData = [
-      { value: 'Acne' },
-    
-    ];
-
-
-    
-    
-    
       return (
         <View style={styles.container}>
 
 
-
-{/* Modal(start) is from react dev website */}
-           <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
-          
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-          <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>{currentDate}</Text>
-
-            <ScrollView >
-            
-
-      <Text> Flow </Text>
-      <RadioButton data={flowData} />
-
-      <Text> Mood </Text>
-      <RadioButton data={moodData} />
-
-
-      <Text>  Discharge </Text>
-      <RadioButton data={dischargeData} />
-
-      <Text> Sex </Text>
-      <RadioButton data={sexData} />
-
-      <Text> Pain </Text>
-      <RadioButton data={painData} />
-
-      <Text> Other </Text>
-      <RadioButton data={otherData} />
-
-      {/* <Text> Sleep </Text>
-      <RadioButton data={flowData} /> */}
-
-
-            <TextInput 
-              style={{height:45}}
-              placeholder="Anything else?"
-              />
-               </ScrollView>
-
-            
-          </View>
-        </View>
-       
-      </Modal>
-
           <Text>{currentDate}</Text>
-          <Button
-    title="Log"
-    color="#f194ff"
-    onPress={() => setModalVisible(true)}
-    />
+          <SympModal/>
           <StatusBar style="auto" />
 
         </View>
@@ -166,6 +49,15 @@ function InsightsScreen() {
     </View>
   );
 }
+
+function CalendarScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center' }}>
+      <Calendar/>
+    </View>
+  );
+}
+
 
 
 function SettingsScreen() {
@@ -188,6 +80,7 @@ export default function App() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Insights" component={InsightsScreen} />
+      <Tab.Screen name="Calendar" component={CalendarScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
     
